@@ -4,12 +4,17 @@
 
 To install into an existing Zend Framework 2 installation that was installed 
 using Composer:
+
 1. Locate the `composer.json` file located in the directory containing the 
 vendor directory and move into that directory.
+
 	cd parent_path_of_vendor
+	
 2. Use composer to update the composer.json file and install the 
 jim-moser/zf2-validators-empty-or package.
+
 	composer require --dev jim-moser/zf2-validators-empty-or
+	
 This should first update the composer.json file and then install the package 
 into the vendor/jim-moser/zf2-validators-empty-or directory and update the 
 composer autoloading files (vendor/composer/autoload_classmap.php and/or 
@@ -20,13 +25,14 @@ within your Zend Framework application.
 
 If you would like to use the Zend\Validator\ValidatorPluginManager to obtain 
 instances of the added validators from their names ("EmptyValidator", "OrChain", 
-or "VerboseOrChain") then the application will need configuration to inform the 
-ValidatorPluginManager of the new validators. The module's Module.php file will 
-do this for you but the application needs to be made aware of the module to do 
-so. This can be accomplished by adding the module name to the ['module'] element 
-and the module name and path to the ['module_listener_options']['module_paths'] 
-element of the array returned by the application's config/application.config.php 
-file.
+or "VerboseOrChain") within a Zend Framework application then the application 
+will need configuration to inform the ValidatorPluginManager of the new 
+validators. The packages's Module.php file can do this for you but the 
+application needs to be made aware of the module to do so. This can be 
+accomplished by adding the module name to the ['module'] element and the module 
+name and path to the ['module_listener_options']['module_paths'] element of the 
+array returned by the application's config/application.config.php file.
+
 	<?php
 	return array(
 		'modules' => array(
@@ -40,7 +46,8 @@ file.
 			),
 		),
 	);
-See the [validator plugin manager](#plugin_manager_note) section below.
+	
+See the [validator plugin manager](#plugin_manager_note) section below.  
 
 ##Alternative 2: Manual Installation to Vendor Directory
 
@@ -58,6 +65,7 @@ to access this file. This can be accomplished by adding the module name to the
 ['module'] element and the module name and path to the 
 ['module_listener_options']['module_paths'] element of the array returned by the 
 application's config/application.config.php file.
+
 	<?php
 	return array(
 		'modules' => array(
@@ -86,4 +94,3 @@ the keyword "new" instead of obtaining an instance from the service manager.
 ValidatorPluginManager instances created directly with the new keyword will not 
 receive the application configuration during construction and thus will not be 
 aware of the validators from this package.
-
