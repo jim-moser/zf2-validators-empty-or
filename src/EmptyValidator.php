@@ -126,23 +126,6 @@ class EmptyValidator extends AbstractValidator
             $options = $temp;
         }
 
-        if (is_array($options)) {
-            if (!array_key_exists('type', $options)) {
-                $detected = 0;
-                $found    = false;
-                foreach ($options as $option) {
-                    if (in_array($option, $this->constants, true)) {
-                        $found = true;
-                        $detected += array_search($option, $this->constants);
-                    }
-                }
-
-                if ($found) {
-                    $options['type'] = $detected;
-                }
-            }
-        }
-
         parent::__construct($options);
     }
 

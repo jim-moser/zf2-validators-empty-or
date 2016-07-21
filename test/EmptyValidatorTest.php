@@ -44,7 +44,7 @@ class EmptyValidatorTest extends \PHPUnit_Framework_Testcase
     {
         $iterator = new \ArrayObject(array(
                         'non_existing_option' => 'some other value',
-                        'integer',
+                        'type' => 'integer',
                         'messageLength' => 9,
         ));
         $this->assertTrue($iterator instanceof \Traversable);
