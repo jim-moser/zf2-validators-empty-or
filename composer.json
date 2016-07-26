@@ -24,8 +24,7 @@
     },
     "require-dev": {
     	"phpunit/phpunit":                   "~4",
-    	"_comment": "zend-servicemanager is required for using Zend\Validator\ValidatorPluginManager."
-    	"zendframework/zend-servicemanager"	 "2.*"
+    	"zendframework/zend-servicemanager": "2.*"
     },
     "autoload": {
         "psr-4": {
