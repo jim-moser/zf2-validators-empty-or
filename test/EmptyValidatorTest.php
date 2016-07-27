@@ -12,7 +12,7 @@ use JimMoser\Validator\EmptyValidator;
  * @license   LICENSE.txt at http://github.com/jim-moser/zf2/validator  
  *            New BSD License
  */
-class EmptyValidatorTest extends \PHPUnit_Framework_Testcase
+class EmptyValidatorTest extends \PHPUnit_Framework_TestCase
 {
     protected $emptyValidator;
     

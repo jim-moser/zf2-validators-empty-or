@@ -20,7 +20,7 @@ use Zend\Validator\ValidatorPluginManager;
  * @license   LICENSE.txt at http://github.com/jim-moser/zf2/validator  
  *            New BSD License
  */
-class VerboseOrChainTest extends \PHPUnit_Framework_Testcase
+class VerboseOrChainTest extends \PHPUnit_Framework_TestCase
 {
     protected $lt5_Or_Gt10_OrValidator;
     protected $referenceDefaultUnionMessage;

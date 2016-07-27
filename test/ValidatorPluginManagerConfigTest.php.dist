@@ -15,7 +15,7 @@ use Zend\Validator\ValidatorPluginManager;
  * @license   LICENSE.txt at http://github.com/jim-moser/zf2/validator  
  *            New BSD License
  */
-class ValidatorPluginManagerTest extends \PHPUnit_Framework_Testcase
+class ValidatorPluginManagerTest extends \PHPUnit_Framework_TestCase
 {
     protected $emptyValidator;
     
