@@ -7,8 +7,8 @@ EmptyValidator is a validator that is valid for empty values. It
 can be considered the logical opposite of the Zend\Validator\NotEmpty validator.
 
 The OrChain and VerboseOrChain validators are validator chains similar to 
-Zend\Validator\ValidatorChain except that they join chained validators using a 
-logical OR instead of a logical AND.
+Zend\Validator\ValidatorChain except that they link validators using a logical 
+OR instead of a logical AND.
 
 VerboseOrChain serves the same purpose as OrChain but provides added validation 
 failure messages.
@@ -20,6 +20,9 @@ This is a base package with the minimal dependencies needed to provide the
 validators. Unit tests and a Module.php file for providing configuration to the 
 Zend Framework validator plugin manager are provided in separate packages.
 
+See epicride.info/JimMoser/zendframework/or_validator.php for an explanation why 
+the EmptyValidator, OrChain, and VerboseOrChain validators were created.
+
 #Dependencies
 
 This package depends directly only on zendframework/zend-validator and 
@@ -27,7 +30,7 @@ zendframework/zend-stdlib.
 
 The zendframework/zend-validator package contains code with dependencies on code 
 within the zendframework/zend-servicemanager and zendframework/zend-i18n 
-packages but these dependencies are not listed in its' composer.json file. These 
+packages but these dependencies are not listed in its composer.json file. These 
 dependencies need to be installed only if using the validator plugin manager 
 (Zend/Validator/ValidatorPluginManager). If your application uses the validator 
 plugin manager then you should either add these dependencies to your 
@@ -35,12 +38,12 @@ application's composer.json file or use the
 jim-moser/zf2-validators-empty-or-plugin package.
 
 Beware that your application may use the validator plugin manager even if your 
-code never calls it directly. For example, the JimMoser\OrChain and 
-JimMoser\VerboseOrChain classes use the validator plugin manager to add 
-validators by name. In the code below, the JimMoser\OrChain object uses a 
+application's custom code never calls it directly. For example, the 
+JimMoser\OrChain and JimMoser\VerboseOrChain classes use the validator plugin 
+manager to add validators by name. In the code below the attachByName method 
+call results in the JimMoser\OrChain object using a 
 Zend\Validator\ValidatorPluginManager instance to create a 
-Zend\Validator\NotEmpty validator instance from the string "NotEmpty" passed to 
-the OrChain::attachByName method.
+Zend\Validator\NotEmpty validator instance.
 
 	$orChain = new \JimMoser\OrChain();
 	$orChain->attachByName('NotEmpty');
