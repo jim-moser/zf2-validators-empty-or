@@ -20,8 +20,9 @@ This is a base package with the minimal dependencies needed to provide the
 validators. Unit tests and a Module.php file for providing configuration to the 
 Zend Framework validator plugin manager are provided in separate packages.
 
-See epicride.info/JimMoser/zendframework/or_validator.php for an explanation why 
-the EmptyValidator, OrChain, and VerboseOrChain validators were created.
+See [http://epicride.info/JimMoser/zendframework/or_validator.php](http://epicride.info/JimMoser/zendframework/or_validator.php) 
+for an explanation why the EmptyValidator, OrChain, and VerboseOrChain 
+validators were created.
 
 #Dependencies
 
@@ -50,10 +51,10 @@ Zend\Validator\NotEmpty validator instance.
 		
 #Related Packages
 
-* jim-moser/zf2-validators-empty-or
-* jim-moser/zf2-validators-empty-or-test
-* jim-moser/zf2-validators-empty-or-plugin
-* jim-moser/zf2-validators-empty-or-plugin-test
+* [jim-moser/zf2-validators-empty-or](https://github.com/jim-moser/zf2-validators-empty-or/)
+* [jim-moser/zf2-validators-empty-or-test](https://github.com/jim-moser/zf2-validators-empty-or-test/)
+* [jim-moser/zf2-validators-empty-or-plugin](https://github.com/jim-moser/zf2-validators-empty-or-plugin/)
+* [jim-moser/zf2-validators-empty-or-plugin-test](https://github.com/jim-moser/zf2-validators-empty-or-plugin-test/)
 	
 <dl>
 	<dt>jim-moser/zf2-validators-empty-or</dt>
@@ -120,7 +121,7 @@ Zend\Validator\NotEmpty validator instance.
 ##Alternative 2: Manual Installation to Vendor Directory
 
 If you would like to install the packages manually and use a Module.php file to 
-configure autoloading instead of using Composer to configure autoloading then 
-use the jim-moser/zf2-validators-empty-or-plugin package instead of this 
-package. Follow the installation instructions in the README.md file of that 
-package.
+configure autoloading instead of using Composer to configure autoloading, then 
+use the [jim-moser/zf2-validators-empty-or-plugin](https://github.com/jim-moser/zf2-validators-empty-or-plugin/) 
+package instead of this package. Follow the installation instructions in the 
+README.md file of that package.
