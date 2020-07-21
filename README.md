@@ -1,14 +1,15 @@
 #Overview
 
 This package contains the JimMoser\EmptyValidator, JimMoser\OrChain, and 
-JimMoser\VerboseOrChain validators for Zend Framework 2.
+JimMoser\VerboseOrChain validators for Laminas Framework 2.
 
 EmptyValidator is a validator that is valid for empty values. It 
-can be considered the logical opposite of the Laminas\Validator\NotEmpty validator.
+can be considered the logical opposite of the Laminas\Validator\NotEmpty 
+validator.
 
 The OrChain and VerboseOrChain validators are validator chains similar to 
-Laminas\Validator\ValidatorChain except that they link validators using a logical 
-OR instead of a logical AND.
+Laminas\Validator\ValidatorChain except that they link validators using a 
+logical OR instead of a logical AND.
 
 VerboseOrChain serves the same purpose as OrChain but provides added validation 
 failure messages.
@@ -18,7 +19,7 @@ information on each of them.
 
 This is a base package with the minimal dependencies needed to provide the 
 validators. Unit tests and a Module.php file for providing configuration to the 
-Zend Framework validator plugin manager are provided in separate packages.
+Laminas Framework validator plugin manager are provided in separate packages.
 
 See [http://epicride.info/JimMoser/zendframework/or_validator.php](http://epicride.info/JimMoser/zendframework/or_validator.php) 
 for an explanation why the EmptyValidator, OrChain, and VerboseOrChain 
@@ -33,8 +34,8 @@ The laminas/laminas-validator package contains code with dependencies on code
 within the laminas/laminas-servicemanager and laminas/laminas-i18n 
 packages but these dependencies are not listed in its composer.json file. These 
 dependencies need to be installed only if using the validator plugin manager 
-(Zend/Validator/ValidatorPluginManager). If your application uses the validator 
-plugin manager then you should either add these dependencies to your 
+(Laminas/Validator/ValidatorPluginManager). If your application uses the 
+validator plugin manager then you should either add these dependencies to your 
 application's composer.json file or use the 
 jim-moser/zf2-validators-empty-or-plugin package.
 
@@ -59,7 +60,7 @@ Laminas\Validator\NotEmpty validator instance.
 <dl>
 	<dt>jim-moser/zf2-validators-empty-or</dt>
 	<dd><p>Base package containing EmptyValidator, OrChain, and VerboseOrChain
-		validators for Zendframework 2.</p>
+		validators for Laminas Framework 2.</p>
 
 		<p>This package has the fewest dependencies. Depends directly on 
 		laminas/laminas-validator and laminas/laminas-stdlib.</p>
@@ -82,13 +83,13 @@ Laminas\Validator\NotEmpty validator instance.
 	<dt>jim-moser/zf2-validators-empty-or-plugin</dt>
 	<dd>
 		<p>This package adds a Module.php file and configuration file which are 
-		used to add configuration for the Zend Framework 2 validator plugin 
+		used to add configuration for the Laminas Framework 2 validator plugin 
 		manager. This configuration allows the plugin manager to return 
 		instances of the EmptyValidator, OrChain, and VerboseOrChain validators 
 		given strings containing their names.</p>
 		
 		<p>Depends directly on jim-moser/zf2-validators-empty-or and 
-		zendframework/zendframework (all of Zend Framework 2).</p>
+		laminas/laminas-modulemanager.</p>
 	</dd>
 	<dt>jim-moser/zf2-validators-empty-or-plugin-test</dt>
 	<dd><p>Package containing framework integration tests for
@@ -104,7 +105,7 @@ Laminas\Validator\NotEmpty validator instance.
 
 ##Alternative 1: Installation with Composer
 
-1. For an existing Zend Framework installation, move into the parent of the 
+1. For an existing Laminas Framework installation, move into the parent of the 
 	vendor directory. This directory should contain an existing composer.json 
 	file. For a new installation, move into the directory you would like to 
 	contain the vendor directory.
