@@ -6,7 +6,7 @@
  * considered to be empty values.
  * 
  * The isValid method of this class is intended to return the boolean opposite
- * of the result that would be returned by the Zend\Validator\NotEmpty::isValid 
+ * of the result that would be returned by the Laminas\Validator\NotEmpty::isValid 
  * method assuming the objects of both classes are configured with identical 
  * empty types. There are two exceptions to this. The first is that both this 
  * class and NotEmpty will return false if the value being validated is neither 
@@ -21,7 +21,7 @@
  * object types.
  * 
  * This class was written by Jim Moser. Much of the code was adapted from the 
- * Zend\Validator\NotEmpty class version 2.5.1 of the Zend Framework 
+ * Laminas\Validator\NotEmpty class version 2.5.1 of the Zend Framework 
  * (http://framework.zend.com/).
  * 
  * @author    Jim Moser <jmoser@epicride.info>
@@ -35,9 +35,9 @@
 namespace JimMoser\Validator;
 
 use Traversable;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Validator\AbstractValidator;
-use Zend\Validator\Exception;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Validator\Exception;
 
 class EmptyValidator extends AbstractValidator
 {

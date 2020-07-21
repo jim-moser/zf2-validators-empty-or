@@ -8,16 +8,16 @@
  * source code documentation because it contains multiple validators.
  * 
  * Because this validator can contain other validators it implements the public 
- * methods of the Zend\Validator\ValidatorChain class that are related to adding 
+ * methods of the Laminas\Validator\ValidatorChain class that are related to adding 
  * validators to the chain although some of the method signatures are different.
  * 
- * However, this class does not inherit from Zend\Validator\ValidatorChain 
- * because doing so would result in the Zend\Validator\ValidatorChain::merge 
+ * However, this class does not inherit from Laminas\Validator\ValidatorChain 
+ * because doing so would result in the Laminas\Validator\ValidatorChain::merge 
  * method incorrectly handling arguments that are instances of this class. This 
  * means instances of this class cannot be used where a 
- * Zend\Validator\ValidatorChain instance is required by a type hint. If a 
- * Zend\Validator\ValidatorChain is required, simply add this validator to a 
- * Zend\Validator\ValidatorChain as would be done for any other validator.
+ * Laminas\Validator\ValidatorChain instance is required by a type hint. If a 
+ * Laminas\Validator\ValidatorChain is required, simply add this validator to a 
+ * Laminas\Validator\ValidatorChain as would be done for any other validator.
  * 
  * Validation Failure Message Keys:
  * Upon validation failure, the validation failure messages from the validators 
@@ -26,7 +26,7 @@
  * elimination of messages with message keys that already exist within the map  
  * of messages.
  * 
- * In Zend\Validator\ValidatorChain, failure messages with keys that already  
+ * In Laminas\Validator\ValidatorChain, failure messages with keys that already  
  * exist within the message map are not added to the map. This is done to 
  * prevent duplication of failure messages that deliver the same message. This 
  * elimination of redundant failure message keys may be desireable in a chain 
@@ -95,7 +95,7 @@
  * null to indicate there should be no post-message. There is no post-message by 
  * default.
  * 
- * This validation class extends Zend\Validator\AbstractValidator and supports 
+ * This validation class extends Laminas\Validator\AbstractValidator and supports 
  * setting the maximum message length, message value substitution, message 
  * variable substitution, message translation, and obscuring values. However, 
  * these features are only applied to the pre-message, post-message, and union 
@@ -121,7 +121,7 @@
  *     Post-message
  * 
  * This class was written by Jim Moser. Much of the code is taken from or a 
- * modification of the code in Zend\Validator\ValidatorChain class version 
+ * modification of the code in Laminas\Validator\ValidatorChain class version 
  * 2.5.1 of the Zend Framework (http://framework.zend.com/).
  *
  * @author    Jim Moser <jmoser@epicride.info>
@@ -136,11 +136,11 @@ namespace JimMoser\Validator;
 
 use Countable;
 use Traversable;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\PriorityQueue;
-use Zend\Validator\AbstractValidator;
-use Zend\Validator\ValidatorInterface;
-use Zend\Validator\ValidatorPluginManager;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Stdlib\PriorityQueue;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Validator\ValidatorInterface;
+use Laminas\Validator\ValidatorPluginManager;
 
 class VerboseOrChain extends AbstractValidator implements Countable
 {
@@ -478,7 +478,7 @@ class VerboseOrChain extends AbstractValidator implements Countable
     {
         $validator = $this->plugin($name, $options);
 
-        //To do. Investigate why Zend\Validator\ValidatorChain does not check 
+        //To do. Investigate why Laminas\Validator\ValidatorChain does not check 
         //for $options['break_on_failure'] in this method.
         if (isset($options['show_messages'])) {
             $showMessages = (bool) $options['show_messages'];
@@ -591,7 +591,7 @@ class VerboseOrChain extends AbstractValidator implements Countable
     protected function aggregateMessages(array $allMessageData)
     {
         // Assign each message unique ID. Do not want messages with pre-existing
-        // keys eliminated in this class or by Zend\Validator\ValidatorChain.
+        // keys eliminated in this class or by Laminas\Validator\ValidatorChain.
         $chainUniqueId = uniqid();
         $messageIndex = 0;
         $finalMessages = array();
@@ -667,7 +667,7 @@ class VerboseOrChain extends AbstractValidator implements Countable
      * Unfortunately this method accesses the OrValidatorChain::validators 
      * property which is protected. This means the type hint for the 
      * $validatorChain argument is restricted to this class. This was borrowed 
-     * from Zend\Validator\ValidatorChain and is necessary to obtain the list of 
+     * from Laminas\Validator\ValidatorChain and is necessary to obtain the list of 
      * validators as a PriorityQueue so that the validators maintain their 
      * priority when merged in.
      * 
@@ -675,7 +675,7 @@ class VerboseOrChain extends AbstractValidator implements Countable
      * PriorityQueue instead of an array and have the merge method call the
      * public getValidators method instead of accessing the protected 
      * validators property. This was not done here in order to keep the API 
-     * as close as possible to the API of the Zend\Validator\ValidatorChain 
+     * as close as possible to the API of the Laminas\Validator\ValidatorChain 
      * class. 
      *
      * @param OrValidatorChain $validatorChain
@@ -728,7 +728,7 @@ class VerboseOrChain extends AbstractValidator implements Countable
      * @param  mixed $context Extra "context" to provide validator.
      * @return bool
      */
-    //To do. Investigate why Zend\Validator\ValidatorChain does not have 
+    //To do. Investigate why Laminas\Validator\ValidatorChain does not have 
     //$context parameter for __invoke method.
     public function __invoke($value, $context = null)
     {

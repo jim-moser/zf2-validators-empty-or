@@ -4,10 +4,10 @@ This package contains the JimMoser\EmptyValidator, JimMoser\OrChain, and
 JimMoser\VerboseOrChain validators for Zend Framework 2.
 
 EmptyValidator is a validator that is valid for empty values. It 
-can be considered the logical opposite of the Zend\Validator\NotEmpty validator.
+can be considered the logical opposite of the Laminas\Validator\NotEmpty validator.
 
 The OrChain and VerboseOrChain validators are validator chains similar to 
-Zend\Validator\ValidatorChain except that they link validators using a logical 
+Laminas\Validator\ValidatorChain except that they link validators using a logical 
 OR instead of a logical AND.
 
 VerboseOrChain serves the same purpose as OrChain but provides added validation 
@@ -26,11 +26,11 @@ validators were created.
 
 #Dependencies
 
-This package depends directly only on zendframework/zend-validator and 
-zendframework/zend-stdlib.
+This package depends directly only on laminas/laminas-validator and 
+laminas/laminas-stdlib.
 
-The zendframework/zend-validator package contains code with dependencies on code 
-within the zendframework/zend-servicemanager and zendframework/zend-i18n 
+The laminas/laminas-validator package contains code with dependencies on code 
+within the laminas/laminas-servicemanager and laminas/laminas-i18n 
 packages but these dependencies are not listed in its composer.json file. These 
 dependencies need to be installed only if using the validator plugin manager 
 (Zend/Validator/ValidatorPluginManager). If your application uses the validator 
@@ -43,8 +43,8 @@ application's custom code never calls it directly. For example, the
 JimMoser\OrChain and JimMoser\VerboseOrChain classes use the validator plugin 
 manager to add validators by name. In the code below the attachByName method 
 call results in the JimMoser\OrChain object using a 
-Zend\Validator\ValidatorPluginManager instance to create a 
-Zend\Validator\NotEmpty validator instance.
+Laminas\Validator\ValidatorPluginManager instance to create a 
+Laminas\Validator\NotEmpty validator instance.
 
 	$orChain = new \JimMoser\OrChain();
 	$orChain->attachByName('NotEmpty');
@@ -62,7 +62,7 @@ Zend\Validator\NotEmpty validator instance.
 		validators for Zendframework 2.</p>
 
 		<p>This package has the fewest dependencies. Depends directly on 
-		zendframework/zend-validator and zendframework/zend-stdlib.</p>
+		laminas/laminas-validator and laminas/laminas-stdlib.</p>
 				
 		<p>Does not include unit testing. The unit testing is available in the
 		jim-moser/zf2-validators-empty-or-test package.</p>
@@ -77,7 +77,7 @@ Zend\Validator\NotEmpty validator instance.
 		jim-moser/zf2-validators-empty-or package.</p>
 		
 		<p>Depends directly on jim-moser/zf2-validators-empty-or, 
-		zendframework/zend-servicemanager, and phpunit/phpunit.</p>
+		laminas/laminas-servicemanager, and phpunit/phpunit.</p>
 	</dd>
 	<dt>jim-moser/zf2-validators-empty-or-plugin</dt>
 	<dd>
