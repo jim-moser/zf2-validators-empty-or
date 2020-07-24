@@ -21,28 +21,38 @@ This is a base package with the minimal dependencies needed to provide the
 validators. Unit tests and a Module.php file for providing configuration to the 
 Laminas Framework validator plugin manager are provided in separate packages.
 
+This package along with the jim-moser/zf2-validators-empty-or-test package are 
+recommended if using the laminas/laminas-validator package in a "non-Laminas 
+Framework" environment. In other words, an environment where 
+laminas/laminas-module-manager and other key components of the Laminas Framework
+are not installed.
+
+For more complete Laminas Framework installations, the 
+jim-moser/zf2-validators-empty-or-plugin and 
+jim-moser/zf2-validators-empty-or-plugin-test packages are recommended instead.
+
 See [http://epicride.info/JimMoser/zendframework/or_validator.php](http://epicride.info/JimMoser/zendframework/or_validator.php) 
 for an explanation why the EmptyValidator, OrChain, and VerboseOrChain 
 validators were created.
 
 #Dependencies
 
-This package depends directly only on laminas/laminas-validator and 
-laminas/laminas-stdlib.
+This package depends directly on code and classes only from 
+laminas/laminas-validator and laminas/laminas-stdlib.
 
 The laminas/laminas-validator package contains code with dependencies on code 
 within the laminas/laminas-servicemanager and laminas/laminas-i18n 
 packages but these dependencies are not listed in its composer.json file. These 
-dependencies need to be installed only if using the validator plugin manager 
+dependencies need to be installed if using the validator plugin manager 
 (Laminas/Validator/ValidatorPluginManager). If your application uses the 
-validator plugin manager then you should either add these dependencies to your 
-application's composer.json file or use the 
-jim-moser/zf2-validators-empty-or-plugin package.
+validator plugin manager then you should either use the 
+jim-moser/zf2-validators-empty-or-plugin package (recommended) or add these 
+dependencies to your application's composer.json file.
 
 Beware that your application may use the validator plugin manager even if your 
 application's custom code never calls it directly. For example, the 
 JimMoser\OrChain and JimMoser\VerboseOrChain classes use the validator plugin 
-manager to add validators by name. In the code below the attachByName method 
+manager to add validators by name. In the code below the attachByName() method 
 call results in the JimMoser\OrChain object using a 
 Laminas\Validator\ValidatorPluginManager instance to create a 
 Laminas\Validator\NotEmpty validator instance.
@@ -78,7 +88,8 @@ Laminas\Validator\NotEmpty validator instance.
 		jim-moser/zf2-validators-empty-or package.</p>
 		
 		<p>Depends directly on jim-moser/zf2-validators-empty-or, 
-		laminas/laminas-servicemanager, and phpunit/phpunit.</p>
+		laminas/laminas-inputfilter, laminas/laminas-servicemanager, 
+		laminas/laminas-validator, and phpunit/phpunit.</p>
 	</dd>
 	<dt>jim-moser/zf2-validators-empty-or-plugin</dt>
 	<dd>
@@ -96,8 +107,12 @@ Laminas\Validator\NotEmpty validator instance.
 		jim-moser/zf2-validators-empty-or-plugin package. The tests verify that 
 		the added validators are available from the validator plugin manager.</p>
 		
-		<p>Depends directly on jim-moser/zf2-validators-empty-or-test and 
-		jim-moser/zf2-validators-empty-or-plugin.</p>
+		<p>Depends directly on jim-moser/zf2-validators-empty-or, 
+		jim-moser/zf2-validators-empty-or-plugin. phpunit/phpunit,
+		laminas/laminas-i18n, laminas/laminas-loader, laminas/laminas-log,
+		laminas/laminas-mvc, laminas/laminas-serializer,
+		laminas/laminas-servicemanager, and laminas/laminas-view.
+		</p>
 	</dd>
 </dl>
 
